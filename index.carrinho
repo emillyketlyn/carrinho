@@ -1,0 +1,49 @@
+CREATE DATABASE CarrinhoRolima;
+
+USE CarrinhoRolima;
+
+CREATE TABLE CarrinhoRolima (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    modelo VARCHAR(50),
+    ano_fabricacao INT,
+    cor VARCHAR(20),
+    material VARCHAR(50),
+    preco DECIMAL(10,2),
+    quantidade_estoque INT
+);
+INSERT INTO CarrinhoRolima (modelo, ano_fabricacao, cor, material, preco, quantidade_estoque)
+VALUES
+('Rolimã Turbo', 2023, 'Vermelho', 'Madeira e Plástico', 350.00, 10),
+('Rolimã Racer', 2022, 'Azul', 'Madeira e Metal', 400.00, 5),
+('Rolimã Speed', 2023, 'Verde', 'Madeira e Plástico', 380.00, 8),
+('Rolimã Classic', 2021, 'Amarelo', 'Madeira', 320.00, 12),
+('Rolimã Xtreme', 2024, 'Preto', 'Madeira e Metal', 450.00, 6);
+SELECT modelo, cor FROM CarrinhoRolima;
+SELECT modelo, preco FROM CarrinhoRolima WHERE preco < 400;
+SELECT modelo, quantidade_estoque FROM CarrinhoRolima WHERE modelo = 'Rolimã Racer';
+SELECT modelo, preco FROM CarrinhoRolima ORDER BY preco DESC;
+SELECT modelo, cor FROM CarrinhoRolima;
+-------------- | --------------
+Rolimã Turbo   | Vermelho
+Rolimã Racer   | Azul
+Rolimã Speed   | Verde
+Rolimã Classic | Amarelo
+Rolimã Xtreme  | Preto
+modelo         | preco
+-------------- | -----
+Rolimã Turbo   | 350.00
+Rolimã Racer   | 400.00
+Rolimã Speed   | 380.00
+Rolimã Classic | 320.00
+CREATE TABLE Avaliacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    carrinho_id INT,
+    avaliacao INT,  -- De 1 a 5
+    comentario TEXT,
+    FOREIGN KEY (carrinho_id) REFERENCES CarrinhoRolima(id)
+);
+INSERT INTO Avaliacoes (carrinho_id, avaliacao, comentario)
+VALUES
+(1, 5, 'Carrinho excelente! Muito rápido e resistente.'),
+(2, 4, 'Bom carrinho, e com muito mais conforto.');
+
