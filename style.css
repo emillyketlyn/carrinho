@@ -1,0 +1,94 @@
+body {
+    background-color: #a0d2eb; /* Cor do céu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evita barras de rolagem */
+}
+
+.pista {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-color: #8b4513; /* Cor da terra */
+    bottom: -15vh; /* Ajusta a posição da pista para baixo */
+}
+
+.carrinho {
+    position: absolute;
+    bottom: 10vh; /* Posição acima da pista */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 100px;
+}
+
+.base {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background-color: #8b4513; /* Marrom para a madeira */
+    border: 2px solid #5a3111;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.assento {
+    position: absolute;
+    bottom: 25px;
+    left: 20%;
+    width: 100px;
+    height: 50px;
+    background-color: #613e1f; /* Marrom mais escuro para o assento */
+    border: 2px solid #4a2f15;
+    transform: rotate(-10deg); /* Inclinação do assento */
+    z-index: 3;
+}
+
+.roda {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #333; /* Cor da rolimã */
+    border: 2px solid #111;
+    border-radius: 50%; /* Transforma o div em um círculo */
+    z-index: 1;
+}
+
+.roda-dianteira-esquerda {
+    top: 20px;
+    left: 10px;
+}
+
+.roda-dianteira-direita {
+    top: 20px;
+    right: 10px;
+}
+
+.roda-traseira-esquerda {
+    bottom: 0px;
+    left: 10px;
+}
+
+.roda-traseira-direita {
+    bottom: 0px;
+    right: 10px;
+}
+
+.eixo-dianteiro, .eixo-traseiro {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #888; /* Cor do eixo */
+    z-index: 0;
+}
+
+.eixo-dianteiro {
+    top: 35px;
+}
+
+.eixo-traseiro {
+    bottom: 15px;
+}
